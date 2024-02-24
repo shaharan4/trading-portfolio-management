@@ -2,14 +2,30 @@ package com.shah.tradingportfoliomanagement.PortfolioManagement;
 
 import java.util.Objects;
 
-public class Stock {
+public class Equity {
     private String ticker;
     private String name;
-    private double pricePerShare;
 
 
-    public Stock(String ticker, String name) {
+
+    public Equity (String ticker, String name) {
         this.ticker = ticker;
+        this.name = name;
+    }
+
+    public String getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -17,8 +33,8 @@ public class Stock {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Stock stock = (Stock) o;
-        return Objects.equals(ticker, stock.ticker);
+        Equity equity = (Equity) o;
+        return Objects.equals(ticker, equity.ticker);
     }
 
     @Override

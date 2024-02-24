@@ -3,7 +3,7 @@ package com.shah.tradingportfoliomanagement.PortfolioManagement;
 import java.util.*;
 
 public final class RefData {
-    private Map<String, Stock> globalStockList;
+    private Map<String, Equity> globalStockList;
     private Map<String, Crypto> globalCryptoList;
 
     public RefData() {
@@ -11,9 +11,9 @@ public final class RefData {
         this.globalCryptoList = new HashMap<>();
 
         //Stocks
-        globalStockList.put("AAPL", (new Stock("AAPL", "Apple")));
-        globalStockList.put("TSLA", (new Stock("TSLA", "Tesla")));
-        globalStockList.put("MSFT", (new Stock("MSFT", "Microsoft")));
+        globalStockList.put("AAPL", (new Equity("AAPL", "Apple")));
+        globalStockList.put("TSLA", (new Equity("TSLA", "Tesla")));
+        globalStockList.put("MSFT", (new Equity("MSFT", "Microsoft")));
 
         //Cryptos
         globalCryptoList.put("BTC", (new Crypto("BTC", "Bitcoin")));
@@ -21,11 +21,11 @@ public final class RefData {
         globalCryptoList.put("SOL", (new Crypto("SOL", "Solana")));
     }
 
-    public Map<String, Stock> getGlobalStockList() {
+    public Map<String, Equity> getGlobalStockList() {
         return globalStockList;
     }
 
-    public void setGlobalStockList(Map<String, Stock> globalStockList) {
+    public void setGlobalStockList(Map<String, Equity> globalStockList) {
         this.globalStockList = globalStockList;
     }
 

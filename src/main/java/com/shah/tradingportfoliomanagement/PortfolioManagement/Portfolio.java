@@ -1,18 +1,20 @@
 package com.shah.tradingportfoliomanagement.PortfolioManagement;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Portfolio {
     Long accountID;
     String portfolioName;
-    Map<Stock, Double> stockList;
-    Map<Crypto, Double> cryptoList;
+    Map<String, List<EquityRecord>> equityList;
+    Map<String, List<CryptoRecord>> cryptoList;
 
     public Portfolio(Long accountID, String portfolioName) {
         this.accountID = accountID;
         this.portfolioName = portfolioName;
-        this.stockList = new HashMap<>();
+        this.equityList = new HashMap<>();
         this.cryptoList = new HashMap<>();
 
     }
@@ -33,36 +35,41 @@ public class Portfolio {
         this.portfolioName = portfolioName;
     }
 
-    public Map<Stock, Double> getStockList() {
-        return stockList;
+    public Map<String, List<EquityRecord>> getEquityList() {
+        return equityList;
     }
 
-    public void setStockList(Map<Stock, Double> stockList) {
-        this.stockList = stockList;
+    public void setEquityList(Map<String, List<EquityRecord>> equityList) {
+        this.equityList = equityList;
     }
 
-    public Map<Crypto, Double> getCryptoList() {
+    public Map<String, List<CryptoRecord>> getCryptoList() {
         return cryptoList;
     }
 
-    public void setCryptoList(Map<Crypto, Double> cryptoList) {
+    public void setCryptoList(Map<String, List<CryptoRecord>> cryptoList) {
         this.cryptoList = cryptoList;
     }
 
-    public void addStockRecord(Stock stock, Double shares){
-        if(this.stockList.containsKey(stock)){
-            this.stockList.put(stock, this.stockList.get(stock) + shares);
+    public void addEquityRecord(String ticker, EquityRecord equityRecord){
+        if (this.equityList.containsKey(ticker)) {
+            this.equityList.get(ticker).add(equityRecord);
         }
-        else{
-            this.stockList.put(stock, shares);
+        else {
+            List<EquityRecord> equityRecordList = new ArrayList<>();
+            equityRecordList.add(equityRecord);
+            this.equityList.put(ticker, equityRecordList);
         }
     }
 
-    public void addCryptoRecord(Crypto crypto, Double coins) {
-        if (this.cryptoList.containsKey(crypto)) {
-            this.cryptoList.put(crypto, this.cryptoList.get(crypto) + coins);
-        } else {
-            this.cryptoList.put(crypto, coins);
+    public void addCryptoRecord(String ticker, CryptoRecord cryptoRecord) {
+        if (this.cryptoList.containsKey(ticker)) {
+            this.cryptoList.get(ticker).add(cryptoRecord);
+        }
+        else {
+            List<CryptoRecord> cryptoRecordList = new ArrayList<>();
+            cryptoRecordList.add(cryptoRecord);
+            this.cryptoList.put(ticker, cryptoRecordList);
         }
     }
 
@@ -71,7 +78,7 @@ public class Portfolio {
         return "Portfolio{" +
                 "accountID = " + accountID +
                 ", portfolioName = '" + portfolioName + '\'' +
-                ", stockList = " + stockList +
+                ", stockList = " + equityList +
                 ", cryptoList = " + cryptoList +
                 '}';
     }

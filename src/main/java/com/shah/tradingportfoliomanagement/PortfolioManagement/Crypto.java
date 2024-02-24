@@ -5,11 +5,27 @@ import java.util.Objects;
 public class Crypto {
     private String ticker;
     private String name;
-    private double pricePerShare;
+
 
 
     public Crypto(String ticker, String name) {
         this.ticker = ticker;
+        this.name = name;
+    }
+
+    public String getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
