@@ -1,13 +1,9 @@
 package com.shah.tradingportfoliomanagement.PortfolioManagement;
 
 import java.util.Objects;
-
 public class Crypto {
     private String ticker;
     private String name;
-
-
-
     public Crypto(String ticker, String name) {
         this.ticker = ticker;
         this.name = name;

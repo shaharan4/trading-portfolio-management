@@ -10,25 +10,28 @@ public class TradingPortfolioManagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TradingPortfolioManagementApplication.class, args);
 		RefData refData = new RefData();
+		PorfolioUtil porfolioUtil = new PorfolioUtil();
 		Portfolio shahPortfolio = new Portfolio(123L, "shahPortfolio");
 
 		Equity tsla = refData.getGlobalStockList().get("TSLA");
-		EquityRecord tsla1 = new EquityRecord(tsla.getTicker(), 10, 200, "BUY");
-		EquityRecord tsla2 = new EquityRecord(tsla.getTicker(), 5, 180, "BUY");
+		EquityTransaction tsla1 = new EquityTransaction(tsla.getTicker(), 10, 200, "BUY");
+		EquityTransaction tsla2 = new EquityTransaction(tsla.getTicker(), 5, 180, "BUY");
+		EquityTransaction tsla3 = new EquityTransaction(tsla.getTicker(), 7, 200, "SELL");
 
 		Equity msft = refData.getGlobalStockList().get("MSFT");
-		EquityRecord msft1 = new EquityRecord(msft.getTicker(), 20, 400, "BUY");
+		EquityTransaction msft1 = new EquityTransaction(msft.getTicker(), 20, 400, "BUY");
 
 		Crypto btc = refData.getGlobalCryptoList().get("BTC");
-		CryptoRecord btc1 = new CryptoRecord(btc.getTicker(), 20,50000, "BUY");
+		CryptoTransaction btc1 = new CryptoTransaction(btc.getTicker(), 20,50000, "BUY");
 
 
 
-		shahPortfolio.addEquityRecord(tsla.getTicker(), tsla1);
-		shahPortfolio.addEquityRecord(msft.getTicker(), msft1);
-		shahPortfolio.addCryptoRecord(btc.getTicker(), btc1);
-		shahPortfolio.addEquityRecord(tsla.getTicker(), tsla2);
-		System.out.println(shahPortfolio);
+		porfolioUtil.addEquityTransaction(shahPortfolio, tsla.getTicker(), tsla1);
+		porfolioUtil.addEquityTransaction(shahPortfolio, msft.getTicker(), msft1);
+		porfolioUtil.addCryptoTransaction(shahPortfolio, btc.getTicker(), btc1);
+		porfolioUtil.addEquityTransaction(shahPortfolio, tsla.getTicker(), tsla2);
+		porfolioUtil.addEquityTransaction(shahPortfolio, tsla.getTicker(), tsla3);
+		System.out.println(porfolioUtil.getPortfolioSummary(shahPortfolio));
 
 	}
 

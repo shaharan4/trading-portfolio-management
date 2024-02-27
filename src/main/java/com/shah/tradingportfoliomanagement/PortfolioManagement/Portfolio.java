@@ -1,6 +1,5 @@
 package com.shah.tradingportfoliomanagement.PortfolioManagement;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +7,8 @@ import java.util.Map;
 public class Portfolio {
     Long accountID;
     String portfolioName;
-    Map<String, List<EquityRecord>> equityList;
-    Map<String, List<CryptoRecord>> cryptoList;
+    Map<String, List<EquityTransaction>> equityList;
+    Map<String, List<CryptoTransaction>> cryptoList;
 
     public Portfolio(Long accountID, String portfolioName) {
         this.accountID = accountID;
@@ -35,42 +34,20 @@ public class Portfolio {
         this.portfolioName = portfolioName;
     }
 
-    public Map<String, List<EquityRecord>> getEquityList() {
+    public Map<String, List<EquityTransaction>> getEquityList() {
         return equityList;
     }
 
-    public void setEquityList(Map<String, List<EquityRecord>> equityList) {
+    public void setEquityList(Map<String, List<EquityTransaction>> equityList) {
         this.equityList = equityList;
     }
 
-    public Map<String, List<CryptoRecord>> getCryptoList() {
+    public Map<String, List<CryptoTransaction>> getCryptoList() {
         return cryptoList;
     }
 
-    public void setCryptoList(Map<String, List<CryptoRecord>> cryptoList) {
+    public void setCryptoList(Map<String, List<CryptoTransaction>> cryptoList) {
         this.cryptoList = cryptoList;
-    }
-
-    public void addEquityRecord(String ticker, EquityRecord equityRecord){
-        if (this.equityList.containsKey(ticker)) {
-            this.equityList.get(ticker).add(equityRecord);
-        }
-        else {
-            List<EquityRecord> equityRecordList = new ArrayList<>();
-            equityRecordList.add(equityRecord);
-            this.equityList.put(ticker, equityRecordList);
-        }
-    }
-
-    public void addCryptoRecord(String ticker, CryptoRecord cryptoRecord) {
-        if (this.cryptoList.containsKey(ticker)) {
-            this.cryptoList.get(ticker).add(cryptoRecord);
-        }
-        else {
-            List<CryptoRecord> cryptoRecordList = new ArrayList<>();
-            cryptoRecordList.add(cryptoRecord);
-            this.cryptoList.put(ticker, cryptoRecordList);
-        }
     }
 
     @Override

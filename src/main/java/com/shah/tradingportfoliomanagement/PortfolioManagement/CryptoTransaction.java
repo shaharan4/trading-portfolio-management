@@ -1,6 +1,6 @@
 package com.shah.tradingportfoliomanagement.PortfolioManagement;
 
-public class CryptoRecord {
+public class CryptoTransaction {
 
     private Long transactionId;
 
@@ -12,7 +12,7 @@ public class CryptoRecord {
 
     private String side;
 
-    public CryptoRecord(String ticker, double coins, double pricePerShare, String side) {
+    public CryptoTransaction(String ticker, double coins, double pricePerShare, String side) {
         this.ticker = ticker;
         this.coins = coins;
         this.pricePerShare = pricePerShare;

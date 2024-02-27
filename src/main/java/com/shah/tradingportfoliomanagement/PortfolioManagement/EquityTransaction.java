@@ -1,6 +1,6 @@
 package com.shah.tradingportfoliomanagement.PortfolioManagement;
 
-public class EquityRecord {
+public class EquityTransaction {
 
     private Long transactionId;
 
@@ -12,7 +12,7 @@ public class EquityRecord {
 
     private String side;
 
-    public EquityRecord(String ticker, double shares, double pricePerShare, String side) {
+    public EquityTransaction(String ticker, double shares, double pricePerShare, String side) {
         this.ticker = ticker;
         this.shares = shares;
         this.pricePerShare = pricePerShare;
