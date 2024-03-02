@@ -1,4 +1,8 @@
-package com.shah.tradingportfoliomanagement.PortfolioManagement;
+package com.shah.tradingportfoliomanagement.PortfolioManagement.Util;
+
+import com.shah.tradingportfoliomanagement.PortfolioManagement.Model.CryptoTransaction;
+import com.shah.tradingportfoliomanagement.PortfolioManagement.Model.EquityTransaction;
+import com.shah.tradingportfoliomanagement.PortfolioManagement.Model.Portfolio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,24 +10,24 @@ import java.util.List;
 public class PorfolioUtil {
 
     public void addEquityTransaction(Portfolio portfolio, String ticker, EquityTransaction equityTransaction){
-        if (portfolio.equityList.containsKey(ticker)) {
-            portfolio.equityList.get(ticker).add(equityTransaction);
+        if (portfolio.getEquityList().containsKey(ticker)) {
+            portfolio.getEquityList().get(ticker).add(equityTransaction);
         }
         else {
             List<EquityTransaction> equityTransactionList = new ArrayList<>();
             equityTransactionList.add(equityTransaction);
-            portfolio.equityList.put(ticker, equityTransactionList);
+            portfolio.getEquityList().put(ticker, equityTransactionList);
         }
     }
 
     public void addCryptoTransaction(Portfolio portfolio, String ticker, CryptoTransaction cryptoTransaction) {
-        if (portfolio.cryptoList.containsKey(ticker)) {
-            portfolio.cryptoList.get(ticker).add(cryptoTransaction);
+        if (portfolio.getCryptoList().containsKey(ticker)) {
+            portfolio.getCryptoList().get(ticker).add(cryptoTransaction);
         }
         else {
             List<CryptoTransaction> cryptoTransactionList = new ArrayList<>();
             cryptoTransactionList.add(cryptoTransaction);
-            portfolio.cryptoList.put(ticker, cryptoTransactionList);
+            portfolio.getCryptoList().put(ticker, cryptoTransactionList);
         }
     }
 

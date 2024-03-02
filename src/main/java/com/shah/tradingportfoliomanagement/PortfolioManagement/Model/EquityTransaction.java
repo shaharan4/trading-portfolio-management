@@ -1,20 +1,20 @@
-package com.shah.tradingportfoliomanagement.PortfolioManagement;
+package com.shah.tradingportfoliomanagement.PortfolioManagement.Model;
 
-public class CryptoTransaction {
+public class EquityTransaction {
 
     private Long transactionId;
 
     private String ticker;
 
-    private double coins;
+    private double shares;
 
     private double pricePerShare;
 
     private String side;
 
-    public CryptoTransaction(String ticker, double coins, double pricePerShare, String side) {
+    public EquityTransaction(String ticker, double shares, double pricePerShare, String side) {
         this.ticker = ticker;
-        this.coins = coins;
+        this.shares = shares;
         this.pricePerShare = pricePerShare;
         this.side = side;
     }
@@ -35,12 +35,12 @@ public class CryptoTransaction {
         this.ticker = ticker;
     }
 
-    public double getCoins() {
-        return coins;
+    public double getShares() {
+        return shares;
     }
 
-    public void setCoins(double coins) {
-        this.coins = coins;
+    public void setShares(double shares) {
+        this.shares = shares;
     }
 
     public double getPricePerShare() {
@@ -61,10 +61,10 @@ public class CryptoTransaction {
 
     @Override
     public String toString() {
-        return "CryptoRecord{" +
+        return "EquityRecord{" +
                 "transactionId=" + transactionId +
                 ", ticker='" + ticker + '\'' +
-                ", coins=" + coins +
+                ", shares=" + shares +
                 ", pricePerShare=" + pricePerShare +
                 ", side='" + side + '\'' +
                 '}';

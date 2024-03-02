@@ -1,4 +1,4 @@
-package com.shah.tradingportfoliomanagement.PortfolioManagement;
+package com.shah.tradingportfoliomanagement.PortfolioManagement.Model;
 
 import java.util.Objects;
 
